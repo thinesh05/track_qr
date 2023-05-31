@@ -6,6 +6,13 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        return view('login');
+    }
+
+    public function login()
+    {
+        if ($this->request->isAJAX()) {
+            echo 'Success';
+        }
     }
 }
