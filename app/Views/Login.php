@@ -103,11 +103,18 @@
             opacity: 0.5;
         }
 
-        .forgot-passoward {
+        .forgot-password {
             font-size : 12px;
-          
-
+            color : #4495FA ;
+            text-decoration : none ; 
         }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -122,7 +129,7 @@
                 <input type="text" name="username" id="username" placeholder="Username">
                 <input type="password" name="password" id="password" placeholder="Password">
             </div>
-            <span class="forgot-passoward">Forgot Password</span>
+                <a class="forgot-password" href="">Forgot password</a>
             <span class="login-btn">Login</span>
         </div>
 
