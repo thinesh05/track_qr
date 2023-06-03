@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,900;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
     <!-- STYLES -->
 
     <style {csp-style-nonce}>
@@ -31,106 +31,86 @@
         .container-section-left,
         .container-section-right {
             width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .container-section-right {
+            flex-direction: column;
+        }
+        .container-section-right .welcome-back{
             color: #4495FA;
             font-weight: 600;
             font-size: 32px;
+            margin: 40px 0px;
+        }
+        .container-section-right .login-input-wrapper {
             display: flex;
-            justify-content: center;
             flex-direction: column;
-            align-items: center;
-        
+            gap: 15px;
+            width: 350px;
         }
-        .container-section-right .login-input {
+        .container-section-right .login-input-wrapper input[type="text"],
+        .container-section-right .login-input-wrapper input[type="password"] {
+            padding: 16px;
+            border-radius: 24px;
+            border: 0px;
+            background: #F8F8F8;
+        }
+        .container-section-right .forgot-password {
+            font-size: 12px;
+            color: #4495FA;
+            text-decoration: none;
+            font-weight: 300;
             display: flex;
-            flex-direction: row;
-            gap: 28px;
-            flex-wrap: wrap;
-            margin: 18px;
+            align-items: center;
+            justify-content: end;
+            margin-top: 8px;
         }
-        .container-section-right input[type="text"] {
-            padding: 10px 16px;
-            border: 0px solid;
-            border-radius: 24px;  
-            background: #F8F8F8;
-            display : block;
-            width: 100%;
-            background-image: url("assets/username.png");
-            background-position: 11px 3px;
-            background-repeat: no-repeat;
-            padding-left: 53px
-                    
-        }
-
-        .container-section-right input[type="password"] {
-            padding: 10px 16px;
-            border-radius: 24px;
-            border: 0px; 
-            background: #F8F8F8;
-            display : block;
-            width: 100%;
-            background-image: url("assets/password.png");
-            background-position: 11px 3px;
-            background-repeat: no-repeat;
-            padding-left: 53px
-                    
-        }
-
-        .square {
-            background-image: url("assets/welcomePage.png");
-            width: 100%;
-            height: 100%;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .login-btn {
-            padding: 10px 16px;
-            border-radius: 24px;
-            font-size : 16px;
-            color : white;
-            background: #4495FA; 
-            cursor: pointer;
-            text-align: center;
-            margin: 10px; 
-            opacity: 1.0;
-            display: block;
-            width :20%;
-        }
-
-        .login-btn:hover {
-            opacity: 0.5;
-        }
-
-        .forgot-password {
-            font-size : 12px;
-            color : #4495FA ;
-            text-decoration : none ; 
-        }
-
-        .forgot-password:hover {
+        .container-section-right .forgot-password span:hover {
             text-decoration: underline;
+            cursor: pointer;
         }
-
-
-
+        .container-section-right .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #4495FA;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 24px;
+            font-weight: 600;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            border: 1px solid #4495FA;
+        }
+        .container-section-right .login-btn:hover {
+            background: #fff;
+            color: #4495FA;
+            transition: 0.3s;
+            border: 1px solid #4495FA;
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
         <div class="container-section-left">
-            <div class="square"></div>
+            <img src="assets/welcomePage.png" alt="">
         </div>
         <div class="container-section-right">
-            <img src="assets/Blue_Modern_QRCode.png" alt="TrackQR-Logo" />
+            <img src="assets/logo.png" alt="Logo" width="86"/>
                 <span class="welcome-back">Welcome Back</span>
             <div class="login-input">
-                <input type="text" name="username" id="username" placeholder="Username">
-                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="login-input-wrapper">
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="forgot-password">
+                    <span>Forgot password</span>    
+                </div>
+                <span class="login-btn">Login</span>
             </div>
-                <a class="forgot-password" href="">Forgot password</a>
-            <span class="login-btn">Login</span>
         </div>
 
 <!-- SCRIPTS -->
