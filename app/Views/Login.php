@@ -8,27 +8,10 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
-    <!-- STYLES -->
-
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/stylesheet.css'); ?>">
+    
+    <!-- CUSTOM STYLES -->
     <style {csp-style-nonce}>
-        html, body {
-            color: rgba(33, 37, 41, 1);
-            font-family: "Poppins", sans-serif;
-            font-size: 16px;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            width: 100%;
-        }
-        * {
-            box-sizing: border-box;
-        }
-        .img-responsive {
-            max-width: 100%;
-            height: auto;
-        }
         .main-container {
             display: flex;
             flex-direction: row;
@@ -63,7 +46,7 @@
             border: 0px;
             background: #F8F8F8;
         }
-        .container-section-right .forgot-password {
+        .container-section-right .forgot-password a{
             font-size: 12px;
             color: #4495FA;
             text-decoration: none;
@@ -73,7 +56,7 @@
             justify-content: end;
             margin-top: 8px;
         }
-        .container-section-right .forgot-password span:hover {
+        .container-section-right .forgot-password a:hover {
             text-decoration: underline;
             cursor: pointer;
         }
@@ -113,26 +96,28 @@
                     <input type="password" name="password" id="password" placeholder="Password">
                 </div>
                 <div class="forgot-password">
-                    <span>Forgot password</span>    
+                    <a href="/forget-password">Forgot password</a>    
                 </div>
                 <span class="login-btn">Login</span>
             </div>
         </div>
 
 <!-- SCRIPTS -->
-<!-- <script src="<?= base_url('js/jquery/dist/jquery.min.js') ?>"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="<?= base_url('js/jquery/dist/jquery.min.js') ?>"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 <script>
-    $(".submit-btn").on("click", function(){
-        var name = $("#name").val()
+    $(".login-btn").on("click", function(){
+        var username = $("#username").val();
+        var password = $("#password").val();
 
         $.ajax({
             url: 'login',
             method: 'GET',
             dataType: 'JSON',
             data: {
-                name: name
+                name: name,
+                password: password
             },
             success: function(response,data) {
                

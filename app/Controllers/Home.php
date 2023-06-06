@@ -15,4 +15,9 @@ class Home extends BaseController
             echo 'Success';
         }
     }
+
+    public function forgotPassword()
+    {
+        return view('forget_password');
+    }
 }
