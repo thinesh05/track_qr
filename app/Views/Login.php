@@ -21,7 +21,9 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
             width: 100%;
-            height: 100%;
+        }
+        * {
+            box-sizing: border-box;
         }
         .main-container {
             display: flex;
