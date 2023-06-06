@@ -25,6 +25,10 @@
         * {
             box-sizing: border-box;
         }
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
         .main-container {
             display: flex;
             flex-direction: row;
@@ -98,7 +102,7 @@
 <body>
     <div class="main-container">
         <div class="container-section-left">
-            <img src="assets/welcomePage.png" alt="">
+            <img src="assets/welcomePage.png" alt="background" class="img-responsive">
         </div>
         <div class="container-section-right">
             <img src="assets/logo.png" alt="Logo" width="86"/>
