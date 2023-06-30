@@ -41,10 +41,11 @@
             }
             .container-section-right .login-input-wrapper input[type="text"],
             .container-section-right .login-input-wrapper input[type="password"] {
-                padding: 16px;
-                border-radius: 24px;
-                border: 0px;
-                background: #F8F8F8;
+                padding: 14px 20px;
+                border-radius: 16px;
+                border: 2px solid #f0f0f0;
+                font-size: 14px;
+                outline-color: #4495FA;
             }
             .container-section-right .forgot-password a{
                 font-size: 12px;
@@ -67,7 +68,7 @@
                 background: #4495FA;
                 margin-top: 20px;
                 padding: 10px;
-                border-radius: 24px;
+                border-radius: 16px;
                 font-weight: 600;
                 color: #fff;
                 font-size: 18px;
