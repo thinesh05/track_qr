@@ -19,4 +19,21 @@ html, body, input {
 }
 input::placeholder {
     color: #838383B2;
-  }
+}
+
+/* Toast Styling */
+.native-toast {
+    opacity: 1;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    padding: 14px 16px !important;
+}
+.native-toast-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.native-toast-icon-error {
+    line-height: 0;
+    margin-right: 0 !important;
+}

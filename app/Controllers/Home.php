@@ -14,20 +14,27 @@ class Home extends BaseController
         if ($this->request->isAJAX()) {
 
             $user_model = new \App\Models\UserModel();
-            $db = \Config\Database::connect();
 
             $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');
 
             $user_details = $user_model->userLogin($username, $password);
 
-            echo json_encode([
-                "status" => 'Success'
-            ]);
+            if(!empty($user_details) && isset($user_details)) {
+                echo json_encode([
+                    "success"    => true,
+                    "data"      => ucfirst(strtolower($user_details['username']))
+                ]);
+            } else {
+                echo json_encode([
+                    "success"    => false,
+                    "data"      => 'Credentials not found'
+                ]);
+            }
         } else {
             echo json_encode([
-                "status"    => 'Error',
-                "data"      =>  'Method Not Found'
+                "success"    => false,
+                "data"      => 'Method Not Found'
             ]);
         }
     }

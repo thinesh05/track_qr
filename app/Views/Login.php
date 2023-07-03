@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/stylesheet.css'); ?>">
+        <link rel="stylesheet" href="node_modules/native-toast/dist/native-toast.css">
         
         <!-- CUSTOM STYLES -->
         <style {csp-style-nonce}>
@@ -103,13 +104,11 @@
                 </div>
             </div>
 
-        <!-- SCRIPTS -->
         <script src="<?= base_url('js/jquery/dist/jquery.min.js') ?>"></script>
         <script src="node_modules/js-sha256/src/sha256.js"></script>
+        <script src="node_modules/native-toast/dist/native-toast.js"></script>
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-
         <script>
-
             $(".login-btn").on("click", function(){
                 var username = $("#username").val();
                 var password = sha256($("#password").val());
@@ -117,16 +116,24 @@
                 $.ajax({
                     url: 'login',
                     method: 'POST',
+                    dataType: 'JSON',
                     data: {
                         username: username,
                         password: password
                     },
-                    success: function(response,data) {
-                        
+                    success: function(response) {
+                        if(response.success) {
+                            console.log(response);
+                        } else {
+                            nativeToast({
+                                message: response.data,
+                                type: 'error',
+                                timeout: 3000
+                            })
+                        }
                     }
                 });
             })
         </script>
-        <!-- -->
     </body>
 </html>

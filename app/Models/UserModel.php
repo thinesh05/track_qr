@@ -6,11 +6,28 @@
     class UserModel extends Model 
     {
         public function userLogin($username, $password) {
-            $query = $db->query('select * from track_user');
-            
-            $result = $query->getResult();
+            $db = \Config\Database::connect();
 
-            return $result;
+            $query = $db->query("
+                SELECT
+                    tu.username,
+                    tr.name as role
+                FROM track_user tu
+                LEFT JOIN track_role tr ON tu.role_id = tr.id
+                WHERE 
+                    tu.username = '".$username."'
+                AND tu.password = '".$password."'
+                AND tu.deleted_at IS NULL
+            ");
+            
+            $result = $query->getRowArray();
+            $num_rows = $query->getNumRows();
+            
+            if($num_rows == 1) {
+                return $result;
+            } else {
+                return false;
+            }
         }
     }
 ?>
