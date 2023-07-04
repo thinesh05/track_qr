@@ -123,7 +123,7 @@
                     },
                     success: function(response) {
                         if(response.success) {
-                            console.log(response);
+                            window.location.href = response.redirect;
                         } else {
                             nativeToast({
                                 message: response.data,

@@ -32,6 +32,14 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->post('login', 'Home::login');
 $routes->get('forget-password', 'Home::forgotPassword');
+
+/* --------------------------------------------------------------------
+* Dashboard Routing
+* --------------------------------------------------------------------
+*/
+$routes->get('admin', 'Home::adminDashboard');
+$routes->get('staff', 'Home::staffDashboard');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -4,13 +4,11 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index()
-    {
+    public function index() {
         return view('login');
     }
 
-    public function login()
-    {
+    public function login() {
         if ($this->request->isAJAX()) {
 
             $user_model = new \App\Models\UserModel();
@@ -21,8 +19,12 @@ class Home extends BaseController
             $user_details = $user_model->userLogin($username, $password);
 
             if(!empty($user_details) && isset($user_details)) {
+
+                $update_last_login = $user_model->updateLastLogin($user_details['user_id']);
+
                 echo json_encode([
-                    "success"    => true,
+                    "success"   => true,
+                    "redirect"  => $user_details['role'],
                     "data"      => ucfirst(strtolower($user_details['username']))
                 ]);
             } else {
@@ -39,8 +41,15 @@ class Home extends BaseController
         }
     }
 
-    public function forgotPassword()
-    {
+    public function forgotPassword() {
         return view('forget_password');
+    }
+
+    public function adminDashboard() {
+        return view('admin_dashboard');
+    }
+
+    public function staffDashboard() {
+        return view('staff_dashboard');
     }
 }
