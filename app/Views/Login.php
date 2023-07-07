@@ -110,6 +110,16 @@
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
         <script>
             $(".login-btn").on("click", function(){
+                submitLogin();
+            })
+
+            $('body .main-container').keypress((e) => {
+                if (e.which === 13) {
+                    submitLogin();
+                }
+            })
+
+            function submitLogin() {
                 var username = $("#username").val();
                 var password = sha256($("#password").val());
                 
@@ -133,7 +143,7 @@
                         }
                     }
                 });
-            })
+            }
         </script>
     </body>
 </html>
