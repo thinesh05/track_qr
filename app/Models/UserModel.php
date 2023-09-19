@@ -38,7 +38,7 @@ class UserModel extends BaseModel
             SET
                 last_login = '".gmdate("Y-m-d H:i:s", time() + (8 * 3600))."'
             WHERE 
-                id = '".$user_id."'
+                id = '".(int)$user_id."'
             AND deleted_at IS NULL
         ");
     }

@@ -24,8 +24,7 @@ class Home extends BaseController
 
                 echo json_encode([
                     "success"   => true,
-                    "redirect"  => $user_details['role'],
-                    "data"      => ucfirst(strtolower($user_details['username']))
+                    "redirect"  => $user_details['role']."?username=".$user_details['username']
                 ]);
             } else {
                 echo json_encode([
@@ -42,14 +41,14 @@ class Home extends BaseController
     }
 
     public function forgotPassword() {
-        return view('forget_password');
+        return view('forgetpassword');
     }
 
     public function adminDashboard() {
-        return view('admin_dashboard');
+        return view('admindashboard');
     }
 
     public function staffDashboard() {
-        return view('staff_dashboard');
+        return view('staffdashboard');
     }
 }
