@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Track QR</title>
-        <meta name="description" content="The small framework with powerful features">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/png" href="/logo.ico">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/stylesheet.css'); ?>">
-        <link rel="stylesheet" href="node_modules/native-toast/dist/native-toast.css">
-        
+        <?php echo $header ?>
+        <title><?php echo $title ?></title>
         <!-- CUSTOM STYLES -->
         <style {csp-style-nonce}>
             .main-container {

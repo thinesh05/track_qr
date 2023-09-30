@@ -2,10 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Controllers\Element\Navbar;
+
 class Home extends BaseController
 {
     public function index() {
-        return view('login');
+        $data['header'] = view('header');
+        $data['title'] = 'Track QR';
+
+        return view('common/login', $data);
     }
 
     public function login() {
@@ -41,14 +46,27 @@ class Home extends BaseController
     }
 
     public function forgotPassword() {
-        return view('forgetpassword');
+        $data['header'] = view('header');
+        $data['title'] = 'Forgot Password';
+
+        return view('common/forgot_password', $data);
     }
 
     public function adminDashboard() {
-        return view('admindashboard');
+        $data['user_id'] = '123';
+
+        $data['header'] = view('header');
+        $data['navbar'] = view('common/navbar', $data);
+        $data['title'] = 'Admin Dashboard';
+
+        return view('common/admin_dashboard', $data);
     }
 
     public function staffDashboard() {
-        return view('staffdashboard');
+        $data['header'] = view('header');
+        $data['navbar'] = view('common/navbar');
+        $data['title'] = 'Staff Dashboard';
+
+        return view('common/staff_dashboard', $data);
     }
 }
