@@ -20,6 +20,15 @@ html, body, input {
 input::placeholder {
     color: #838383B2;
 }
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.content {
+    padding: 16px 35px;
+    width: 100%;
+}
 
 /* Toast Styling */
 .native-toast {

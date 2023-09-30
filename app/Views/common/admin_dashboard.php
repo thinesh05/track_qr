@@ -7,8 +7,12 @@
     </style>
 </head>
 <body> 
-    <?php echo $navbar ?>
-    <span class="username"></span>
+    <div class="main">
+        <?php echo $navbar ?>
+        <div class="content">
+            <span class="username"></span>
+        </div>
+    </div>
 
     <script src="<?= base_url('js/jquery/dist/jquery.min.js') ?>"></script>
     <script src="node_modules/js-sha256/src/sha256.js"></script>
@@ -19,7 +23,7 @@
             var urlParams = new URLSearchParams(window.location.search);
             var username = urlParams.get('username');
 
-            $(".username").text("Hello "+username)
+            $(".username").text("Hello "+username+" !")
         })
     </script>
 </body>
