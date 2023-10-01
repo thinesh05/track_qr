@@ -46,8 +46,8 @@ class Home extends BaseController
     }
 
     public function forgotPassword() {
-        $data['header'] = view('header');
         $data['title'] = 'Forgot Password';
+        $data['header'] = view('header');
 
         return view('common/forgot_password', $data);
     }
@@ -55,17 +55,19 @@ class Home extends BaseController
     public function adminDashboard() {
         $data['user_id'] = '123';
 
-        $data['header'] = view('header');
-        $data['navbar'] = view('common/navbar', $data);
         $data['title'] = 'Admin Dashboard';
+        $data['header'] = view('header');
+        $data['footer'] = view('footer');
+        $data['navbar'] = view('common/navbar', $data);
 
         return view('common/admin_dashboard', $data);
     }
 
     public function staffDashboard() {
-        $data['header'] = view('header');
-        $data['navbar'] = view('common/navbar');
         $data['title'] = 'Staff Dashboard';
+        $data['header'] = view('header');
+        $data['footer'] = view('footer');
+        $data['navbar'] = view('common/navbar');
 
         return view('common/staff_dashboard', $data);
     }
