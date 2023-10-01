@@ -48,6 +48,7 @@ class Home extends BaseController
     public function forgotPassword() {
         $data['title'] = 'Forgot Password';
         $data['header'] = view('header');
+        $data['footer'] = view('footer');
 
         return view('common/forgot_password', $data);
     }
