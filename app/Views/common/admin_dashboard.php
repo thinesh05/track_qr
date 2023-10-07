@@ -3,23 +3,26 @@
     <title><?php echo $title ?></title>
     <!-- CUSTOM STYLES -->
     <style {csp-style-nonce}>
-        
+        .page-header-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .user-notification-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .page-header {
+            font-size: 24px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body> 
     <div class="main">
-        <?php echo $navbar ?>
-        <div class="content">
-            <span class="username"></span>
-        </div>
+        <?= $navbar ?>
+        <?= $page_header ?>
     </div>
-    <?php echo $footer ?>
-    <script>
-        $(document).ready(function() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var username = urlParams.get('username');
-
-            $(".username").text("Hello "+username+" !")
-        })
-    </script>
+    <?= $footer ?>
 </body>

@@ -8,7 +8,8 @@ class Home extends BaseController
 {
     public function index() {
         $data['header'] = view('header');
-        $data['title'] = 'Track QR';
+        $data['footer'] = view('footer');
+        $data['title'] = 'Track QR';  
 
         return view('common/login', $data);
     }
@@ -26,10 +27,23 @@ class Home extends BaseController
             if(!empty($user_details) && isset($user_details)) {
 
                 $update_last_login = $user_model->updateLastLogin($user_details['user_id']);
+                $user = ucfirst(strtolower($user_details['fullname']));
+                $email = strtolower($user_details['email']);
+                $role = strtolower($user_details['role']);
+
+                $user_data_arr = array(
+                    "user" => $user,
+                    "email" => $email,
+                    "role" => $role
+                );
+
+                $json_data = json_encode($user_data_arr);
+
+                $data = base64_encode($json_data);
 
                 echo json_encode([
                     "success"   => true,
-                    "redirect"  => $user_details['role']."?username=".$user_details['username']
+                    "data"      => urlencode($data)
                 ]);
             } else {
                 echo json_encode([
@@ -46,6 +60,7 @@ class Home extends BaseController
     }
 
     public function forgotPassword() {
+        //Page Elements
         $data['title'] = 'Forgot Password';
         $data['header'] = view('header');
         $data['footer'] = view('footer');
@@ -54,22 +69,43 @@ class Home extends BaseController
     }
 
     public function adminDashboard() {
-        $data['user_id'] = '123';
+        $user_data = base64_decode(urldecode($this->request->getGet('data')));
+        $json_data = json_decode($user_data, true);
 
-        $data['title'] = 'Admin Dashboard';
+        $data['username'] = $json_data['user'];
+
+        //Page Elements
+        $data['title'] = 'Dashboard';
         $data['header'] = view('header');
         $data['footer'] = view('footer');
-        $data['navbar'] = view('common/navbar', $data);
+        $data['page_header'] = view('page_header', $data);
+        $data['navbar'] = $this->loadNavbar();
 
         return view('common/admin_dashboard', $data);
     }
 
     public function staffDashboard() {
-        $data['title'] = 'Staff Dashboard';
+        //Page Elements
+        $data['title'] = 'Dashboard';
         $data['header'] = view('header');
         $data['footer'] = view('footer');
-        $data['navbar'] = view('common/navbar');
+        $data['page_header'] = view('page_header', $data);
+        $data['navbar'] = $this->loadNavbar();
 
         return view('common/staff_dashboard', $data);
+    }
+
+    public function loadNavbar() {
+        $user_data = base64_decode(urldecode($this->request->getGet('data')));
+        $json_data = json_decode($user_data, true);
+
+        $data['username'] = $json_data['user'];
+        $data['email'] = $json_data['email'];
+        $data['role'] = $json_data['role'];
+        $data['first_letter'] = substr($json_data['user'], 0, 1);
+        $data['header'] = view('header');
+        $data['footer'] = view('footer');
+
+        return view('common/navbar', $data);
     }
 }

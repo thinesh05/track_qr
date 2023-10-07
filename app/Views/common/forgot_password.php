@@ -7,4 +7,4 @@
 
 Forget Password
 
-<?php echo $footer ?>
+<?= $footer ?>
