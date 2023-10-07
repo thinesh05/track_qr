@@ -1,3 +1,19 @@
+<style>
+    .page-header-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .user-notification-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .page-header {
+        font-size: 24px;
+        font-weight: 600;
+    }
+</style>
 <div class="content">
     <div class="page-header-wrap">
         <span class="page-header"><?= $title ?></span>

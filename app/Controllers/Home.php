@@ -85,6 +85,11 @@ class Home extends BaseController
     }
 
     public function staffDashboard() {
+        $user_data = base64_decode(urldecode($this->request->getGet('data')));
+        $json_data = json_decode($user_data, true);
+
+        $data['username'] = $json_data['user'];
+        
         //Page Elements
         $data['title'] = 'Dashboard';
         $data['header'] = view('header');
