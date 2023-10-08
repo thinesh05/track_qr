@@ -84,6 +84,9 @@ class Home extends BaseController
         $data['page_header'] = view('page_header', $data);
         $data['navbar'] = $this->loadNavbar();
 
+        //Load Graph
+        $data['line_graph'] = view('charts/line', $data);
+
         return view('common/admin_dashboard', $data);
     }
 

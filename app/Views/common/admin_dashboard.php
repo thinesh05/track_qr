@@ -1,6 +1,6 @@
 <head>
-    <?php echo $header ?>
-    <title><?php echo $title ?></title>
+    <?= $header ?>
+    <title><?= $title ?></title>
     <!-- CUSTOM STYLES -->
     <style {csp-style-nonce}>
         .admin-stats {
@@ -85,6 +85,9 @@
                         </div>
                         <span class="total-count"><?= $active_classes ?></span>
                     </div>
+                </div>
+                <div class="student-graph">
+                    <?= $line_graph ?>
                 </div>
             </div>
         </div>
