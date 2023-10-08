@@ -73,6 +73,9 @@ class Home extends BaseController
         $json_data = json_decode($user_data, true);
 
         $data['username'] = $json_data['user'];
+        $data['total_teachers'] = '10';
+        $data['total_students'] = '10';
+        $data['active_classes'] = '10';
 
         //Page Elements
         $data['title'] = 'Dashboard';
